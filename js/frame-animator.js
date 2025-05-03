@@ -10,7 +10,7 @@ class FrameAnimator {
       this.ctx = this.canvas.getContext('2d');
       this.prefix = options.prefix;
       this.frameCount = options.frameCount;
-      this.imagePath = this.normalizePath(options.imagePath || './media/img/');
+      this.imagePath = this.normalizePath(options.imagePath || './media/img-optimized/');
       this.digits = options.digits || 3;
       this.fps = options.fps || 24;
       this.loop = options.loop !== false;
@@ -129,7 +129,7 @@ class FrameAnimator {
   
     getFramePath(index) {
       const frameNum = index.toString().padStart(this.digits, '0');
-      const path = `${this.imagePath}${this.prefix}/${this.prefix}${frameNum}.png`;
+      const path = `${this.imagePath}${this.prefix}/${this.prefix}${frameNum}.webp`;
       return path;
     }
   
@@ -261,7 +261,7 @@ class FrameAnimator {
             canvas: canvas,
             prefix: canvas.dataset.frames,
             frameCount: parseInt(canvas.dataset.count),
-            imagePath: canvas.dataset.path || './media/img/',
+            imagePath: canvas.dataset.path || './media/img-optimized/',
             digits: parseInt(canvas.dataset.digits) || 3,
             fps: parseInt(canvas.dataset.fps) || 24,
             loop: canvas.dataset.loop !== 'false',
